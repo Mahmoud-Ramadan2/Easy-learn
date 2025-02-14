@@ -1,6 +1,7 @@
 package com.example.EasyLearn.controller;
 
 import com.example.EasyLearn.model.Course;
+import com.example.EasyLearn.model.Customer;
 import com.example.EasyLearn.model.Review;
 import com.example.EasyLearn.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 @RequestMapping("/course")
-public class CourcseController {
+public class CourseController {
     @Autowired
     private CourseService courseService;
 
@@ -44,7 +44,13 @@ public class CourcseController {
     public String deleteCourse(@RequestParam("courseId") int id){
         courseService.deleteById(id);
         return "redirect:/course/list";
+    }
 
+    @GetMapping("/show-add-form")
+    public String showForm (Model model){
+        Customer customer = new Customer();
+        model.addAttribute("customer", customer);
+        return "customer/customer-form";
     }
 
 
