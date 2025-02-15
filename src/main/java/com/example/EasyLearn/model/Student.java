@@ -20,10 +20,10 @@ public class Student {
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinTable(name = "student_course",
             joinColumns = @JoinColumn(name = "student_id"),
-            inverseJoinColumns = @JoinColumn(name = "cousre_id")
+            inverseJoinColumns = @JoinColumn(name = "course_id")
 
     )
-    private Set<Course> courses;
+    private Set<Course> courses = new HashSet<>();
 
 
     public Student() {

@@ -1,6 +1,9 @@
 package com.example.EasyLearn;
 
+import com.example.EasyLearn.model.Course;
 import com.example.EasyLearn.model.Instructor;
+import com.example.EasyLearn.model.Student;
+import com.example.EasyLearn.service.CourseService;
 import com.example.EasyLearn.service.InstructorService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,23 +18,23 @@ public class EasyLearnApplication {
 	public static void main(String[] args) {SpringApplication.run(EasyLearnApplication.class, args);}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(InstructorService instructorService){
+	public CommandLineRunner commandLineRunner(CourseService courseService, InstructorService instructorService){
 		return runner -> {
-			  showCourses(instructorService);
+			addcoursewithstudents(courseService,instructorService);
 		};
 	}
 
 
-private void showCourses(InstructorService instructorService){
-		Instructor instructor = instructorService.findInstrructorWithCourses(1);
-
-
-	if (instructor != null) {
-		System.out.println("Instructor: " + instructor);
-		System.out.println("Courses: " + instructor.getCourses());
-	} else {
-		System.out.println("Instructor not found with ID: 1");
-	}
+private void addcoursewithstudents(CourseService courseService, InstructorService instructorService){
+		Course course = new Course("course SPS");
+		Instructor instructor = new Instructor("SPS","SPS");
+		course.setInstrcutor(instructor);
+	Student student1 = new Student("PM","SPS","SPS");
+	Student student2 = new Student("PP","SPS","SPS");
+	course.addStudent(student1);
+	course.addStudent(student2);
+	instructor.add(course);
+	instructorService.save(instructor);
 	System.out.println("DONEEEEE");
 
 

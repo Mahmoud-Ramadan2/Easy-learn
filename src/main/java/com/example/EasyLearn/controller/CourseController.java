@@ -48,9 +48,9 @@ public class CourseController {
 
     @GetMapping("/show-add-form")
     public String showForm (Model model){
-        Customer customer = new Customer();
-        model.addAttribute("customer", customer);
-        return "customer/customer-form";
+        Course course = new Course();
+        model.addAttribute("course", course);
+        return "course/course-form";
     }
 
 

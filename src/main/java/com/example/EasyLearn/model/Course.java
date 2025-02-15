@@ -31,7 +31,7 @@ public class Course {
             joinColumns = @JoinColumn(name = "course_id"),
             inverseJoinColumns = @JoinColumn(name = "student_id")
     )
-    private Set<Student> students;
+    private Set<Student> students = new HashSet<>();
 
     public Course() {
     }
@@ -95,7 +95,6 @@ public class Course {
             students = new HashSet<>();
         }
         students.add(student);
-        student.getCourses().add(this);
     }
 
 
