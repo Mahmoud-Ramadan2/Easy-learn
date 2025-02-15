@@ -2,6 +2,7 @@ package com.example.EasyLearn.service;
 
 import com.example.EasyLearn.exception.EntityNotFoundException;
 import com.example.EasyLearn.model.Course;
+import com.example.EasyLearn.model.Instructor;
 import com.example.EasyLearn.model.Review;
 import com.example.EasyLearn.repository.CourseRepository;
 import com.example.EasyLearn.repository.ReviewRepository;
@@ -47,6 +48,20 @@ public class CourseService {
         );
         course.addReview(review);
         reviewRepository.save(review);
+    }
+
+    @Transactional
+    public Course findCourseWithStudents(int courseId){
+       Optional<Course> result = courserRepository.findCourseWithStudents(courseId);
+       Course course = null;
+       if(result.isPresent()){
+           course = result.get();
+       }
+       else{
+           throw new EntityNotFoundException("Course with id=" + courseId + " not found.");
+       }
+
+        return course;
     }
 
     public void deleteById(int id){
