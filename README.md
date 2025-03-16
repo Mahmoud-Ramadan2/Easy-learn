@@ -32,7 +32,6 @@ Easy-Learn is a **Spring Boot & Thymeleaf**-based web application for online lea
 | Method | Endpoint | Description |  
 |--------|-------------|------------------|  
 | GET | `/showloginpage` | Show login page |  
-| GET | `/accessdenied` | Show access denied page |  
 | GET | `/courses` | List all courses |  
 | POST | `/courses` | Create a new course |  
 | GET | `/instructors` | List all instructors |  
