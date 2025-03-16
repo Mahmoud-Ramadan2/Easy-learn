@@ -39,14 +39,3 @@ Easy-Learn is a **Spring Boot & Thymeleaf**-based web application for online lea
 ## 📜 License  
 This project is open-source and available under the MIT License.  
 
----
-
-## 📌 Short Description for CV & LinkedIn  
-
-### **Easy-Learn – Online Learning Platform**  
-Developed a **Spring Boot & Thymeleaf**-based online learning platform. Key features:  
-- **Session-based Authentication** with login and access control.  
-- **Course & Instructor Management** for CRUD operations.  
-- **Student Enrollment** to join and manage courses.  
-- **Task Management System** for tracking assignments.  
-- **Spring Boot MVC with MySQL**, ensuring structured data management.  
