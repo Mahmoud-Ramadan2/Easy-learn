@@ -1,7 +1,6 @@
 package com.example.EasyLearn.controller;
 
 import com.example.EasyLearn.model.Course;
-import com.example.EasyLearn.model.Customer;
 import com.example.EasyLearn.model.Review;
 import com.example.EasyLearn.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
